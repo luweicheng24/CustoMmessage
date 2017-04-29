@@ -93,7 +93,7 @@ public class ConfirmDialog extends BaseDialog {
      */
     @Override
     public void initView() {
-        setContentView(R.layout.dialog_layout);
+        setContentView(R.layout.dialog_confirm_layout);
         title = (TextView) findViewById(R.id.tv_title);
         content = (TextView) findViewById(R.id.tv_content);
         cancel = (TextView) findViewById(R.id.tv_cancel);
