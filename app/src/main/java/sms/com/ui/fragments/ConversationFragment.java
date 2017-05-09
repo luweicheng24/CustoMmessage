@@ -1,5 +1,7 @@
 package sms.com.ui.fragments;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,8 +21,10 @@ import java.util.List;
 import sms.com.R;
 import sms.com.adapter.ConversationAdapter;
 import sms.com.base.BaseFragment;
+import sms.com.bean.Conversation;
 import sms.com.dao.SimpleQueryHandler;
 import sms.com.globle.Constant;
+import sms.com.ui.activity.SmsDetailActivity;
 import sms.com.ui.dialog.ConfirmDialog;
 import sms.com.ui.dialog.DeleteDialog;
 
@@ -154,6 +158,14 @@ public class ConversationFragment extends BaseFragment implements AdapterView.On
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (adapter.getEdit()) {
             adapter.addSelected(position);
+        }else{
+            //跳转到短信详情页面
+            Cursor cursor = adapter.getCursor();
+            Conversation conversation = Conversation.createObjfromCurson(cursor);
+            Intent intent = new Intent(getActivity(),SmsDetailActivity.class);
+            intent.putExtra("address",conversation.getAddress());
+            intent.putExtra("thread_id",conversation.getThread_id());
+            startActivity(intent);
         }
     }
 

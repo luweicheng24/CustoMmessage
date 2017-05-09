@@ -3,8 +3,7 @@ package sms.com.dao;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
 import android.database.Cursor;
-
-import sms.com.adapter.ConversationAdapter;
+import android.widget.CursorAdapter;
 
 /**
  * Author   : luweicheng on 2017/4/27 0027 11:08
@@ -24,9 +23,9 @@ public class SimpleQueryHandler extends AsyncQueryHandler {
     protected void onQueryComplete(int token, Object cookie, Cursor cursor) {
         /*super.onQueryComplete(token, cookie, cursor);
         CursorUtils.printCursor(cursor);*/
-        if(cookie!=null&&cookie instanceof ConversationAdapter){
+        if(cookie!=null&&cookie instanceof CursorAdapter){
             /*数据以改变马上对ListView重新布局*/
-           ((ConversationAdapter)cookie).changeCursor(cursor);
+           ((CursorAdapter)cookie).changeCursor(cursor);
         }
     }
 }

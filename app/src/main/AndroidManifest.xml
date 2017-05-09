@@ -19,6 +19,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.SmsDetailActivity"
+              android:windowSoftInputMode="adjustUnspecified|adjustResize"
+            />
+        <!-- 短信接受广播-->
+        <receiver android:name=".receiver.SmsReceiverBroadCast">
+            <intent-filter>
+                <action android:name="com.luweicheng.smsreceiver.action"/>
+
+            </intent-filter>
+
+        </receiver>
+        <!--短信发送广播-->
+        <receiver android:name=".receiver.SmsSendBroadCastReceiver">
+            <intent-filter>
+                <action android:name="com.luweicheng.sendsms"/>
+
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>

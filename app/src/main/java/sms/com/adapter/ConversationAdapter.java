@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.view.View;
@@ -61,6 +63,7 @@ public class ConversationAdapter extends CursorAdapter {
         return View.inflate(context, R.layout.lv_conversation_item, null);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         ViewHolder holder = getHolder(view);
