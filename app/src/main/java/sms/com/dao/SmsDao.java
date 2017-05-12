@@ -32,7 +32,7 @@ public class SmsDao {
         ArrayList<String> sms =  smsManager.divideMessage(msg);
         for (String  text:sms) {
             //只负责发送短信，不会将数据插入数据库
-            smsManager.sendTextMessage(address,null,text,pendIntent,pendIntent2);
+            smsManager.sendTextMessage(address,null,text,pendIntent,null);
             ContentValues value = new ContentValues();
             //插数据到数据库
             value.put("type",1);

@@ -1,13 +1,17 @@
 package sms.com.ui.activity;
 
 import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nineoldandroids.view.ViewPropertyAnimator;
 
@@ -32,6 +36,8 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     private List<Fragment> mList;
     private View dividerLine;
     private int divideLineLength;
+    private long time = 0;
+
 
 
     @Override
@@ -53,9 +59,9 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         dividerLine.getLayoutParams().width = divideLineLength;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void initData() {
-
         mList = new ArrayList<>();
         ConversationFragment cFragment = new ConversationFragment();
         GroupFragment gFragment = new GroupFragment();
@@ -144,8 +150,35 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     @Override
     public void onPageScrollStateChanged(int state) {
+        /**
+         * 隐藏软键盘
+         */
+        InputMethodManager imm  = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        if(imm.isActive()){
+            imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(),0);
+        }
+
 
     }
 
+    /**
+     * 三秒内按两次返回键直接退出
+     */
+    @Override
+    public void onBackPressed() {
+        if(time == 0){
+            time = System.currentTimeMillis();
+            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+            return;
+        }else{
 
+            if(System.currentTimeMillis() - time <  2000){
+                finish();
+            }else{
+                Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+                time = System.currentTimeMillis();
+            }
+        }
+
+    }
 }

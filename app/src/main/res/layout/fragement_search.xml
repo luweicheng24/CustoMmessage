@@ -1,13 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <TextView
+
+  <LinearLayout
+
+      android:background="@color/colorAccent"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:gravity="center"
-      android:text="搜索"
-      android:textSize="40sp"
-      />
+      android:layout_height="40dp">
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+          <ImageView
+              android:layout_marginLeft="10dp"
+              android:layout_gravity="center_vertical"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:background="@drawable/img_search"
+              />
+    <EditText
+        android:id="@+id/et_fragment_search"
+        android:background="@null"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:maxEms="5"
+        android:gravity="center"
+        android:hint="输入搜索的短信内容"
+        android:textSize="15sp"
+        android:maxLength="18"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center_vertical"
+        />
+    </LinearLayout>
+
+  </LinearLayout>
+  <ListView
+      android:id="@+id/lv_search"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+
+  </ListView>
 </LinearLayout>

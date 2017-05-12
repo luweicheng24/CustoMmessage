@@ -21,6 +21,7 @@ public abstract class BaseDialog  extends AlertDialog implements View.OnClickLis
     }
 
 
+
     @Override
     protected void onStart() {
         super.onStart();

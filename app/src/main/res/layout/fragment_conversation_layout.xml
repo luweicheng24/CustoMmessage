@@ -10,7 +10,7 @@
         android:scrollbarThumbVertical="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"
+        android:layout_weight="1"
         android:divider="@android:color/transparent"
         android:listSelector="@android:color/transparent"
         android:padding="5dp">
@@ -19,11 +19,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_weight="0.8"
+        android:id="@+id/ll_edit_globle"
         android:background="@drawable/backgeound_shape">
 
         <LinearLayout

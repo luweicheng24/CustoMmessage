@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorWhilte"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
+        android:divider="@android:color/transparent"
+        android:id="@+id/lv_fragment_groups"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+    </ListView>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/backgeound_shape"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/but_group_create"
+            android:text="创建群组"
+            android:background="@drawable/but_shape"
+            android:textColor="@color/colorWhilte"
+            android:layout_centerInParent="true"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

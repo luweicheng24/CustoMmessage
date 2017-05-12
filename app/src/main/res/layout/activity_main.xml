@@ -6,8 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.2"
-        android:background="#5599f2"
+        android:layout_weight="1.0"
+        android:background="@color/colorAccent"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -91,7 +91,7 @@
        android:id="@+id/v_divider"
        android:layout_width="120dp"
        android:layout_height="4dp"
-       android:background="#0b39dc"
+       android:background="@color/colorAccent"
        />
   <android.support.v4.view.ViewPager
       android:id="@+id/viewPager"

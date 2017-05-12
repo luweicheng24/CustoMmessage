@@ -3,9 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
 
-    android:background="@color/colorgray"
+    android:background="#cccccc"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <include layout="@layout/titlebar_layout"/>
    <LinearLayout
        android:orientation="horizontal"
        android:layout_marginTop="10dp"
@@ -23,6 +24,7 @@
            android:text="发送到:"
            />
        <AutoCompleteTextView
+           android:completionThreshold="1"
            android:id="@+id/tv_newsms_phone"
            android:gravity="center"
            android:layout_marginLeft="5dp"
@@ -46,6 +48,16 @@
            android:background="@drawable/select_contact_bg"
            />
    </LinearLayout>
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
 
     <EditText
         android:id="@+id/et_newsms_content"
@@ -64,11 +76,14 @@
     <Button
         android:id="@+id/but_newsms_send"
         android:layout_marginTop="20dp"
-        android:background="@drawable/clickshape"
+        android:textColor="#ffffff"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:textColor="@color/colorPrimary"
+        android:background="@drawable/but_shape"
         android:text="发送"
         android:layout_gravity="center_horizontal"
         />
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>

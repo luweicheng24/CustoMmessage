@@ -7,12 +7,13 @@
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_sms2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.MainActivity"
+            android:windowSoftInputMode="adjustUnspecified|adjustPan|stateHidden"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,8 +21,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.SmsDetailActivity"
-              android:windowSoftInputMode="adjustUnspecified|adjustResize"
+              android:windowSoftInputMode="adjustUnspecified|adjustResize|stateHidden"
             />
+        <activity android:name=".ui.activity.NewSmsActivity"
+            android:windowSoftInputMode="adjustUnspecified|adjustResize|stateHidden"
+            />
+        <activity android:name=".ui.activity.GroupThreadActivity"/>
         <!-- 短信接受广播-->
         <receiver android:name=".receiver.SmsReceiverBroadCast">
             <intent-filter>
@@ -33,11 +38,19 @@
         <!--短信发送广播-->
         <receiver android:name=".receiver.SmsSendBroadCastReceiver">
             <intent-filter>
-                <action android:name="com.luweicheng.sendsms"/>
+                <action android:name="com.luweicheng.sendsms"
+                    />
 
             </intent-filter>
 
         </receiver>
+        <!-- 短信群组的内容提供者-->
+        <provider
+            android:authorities="com.gsww.sms"
+            android:name=".provider.GroupsProvider"
+            android:exported="true"
+            >
+        </provider>
     </application>
 
 </manifest>
